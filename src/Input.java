@@ -20,7 +20,7 @@ public class Input {
 		this.file = new File("C:/Temp/sungjuk_utf8.dat");
 
 		try {
-//			this.br = new BufferedReader(new FileReader(this.file));
+			this.br = new BufferedReader(new FileReader(this.file));
 			this.sc = new Scanner(file, "utf-8");
 		} catch (FileNotFoundException e) {
 			System.out.println("File Not Found");
@@ -43,17 +43,20 @@ public class Input {
 			try {
 				line = this.br.readLine();
 			} catch (Exception e) {
-				// TODO: handle exception
+				e.printStackTrace();
 			}
 			
-			if(line == null) break;{
+			if(line == null) 
+				break;
+			{
 				String lines [] = line.split("\\s+");
 				System.out.println(lines[0]);
 				
 			}
-			
+	
 			
 		}
+		return count-1;
 		
 	}
 	
@@ -73,11 +76,16 @@ public class Input {
 //		}
 //		return count-1;
 //	}
-	
+//	Try-catch문은 예외를 처리하기 위한 구문이다. 
+//	try
+//	{//예외발생할 가능성이 있는 문장}
+//	catch(Exception1 e1)
+//	{//Exception1이 발생했을 경우, 이를 처리하지 위한 문장적는다.
+//	 //보통 이곳에 예외메세지를 출력하고 로그로 남김.}
+//	 catch(Exception2 e2)
+//	 {//Exception2이 발생했을 경우, 이를 처리하지 위한 문장적는다.}
+//	 
+	 
 
 	
-	public int input() {
-		return 0;
-
-	}
 }
