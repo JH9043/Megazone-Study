@@ -24,7 +24,7 @@ public class Student {
 				hakbun, name, kor, eng, mat, edp, tot, avg, grade);
 	}
 
-	public String getHakbun() {
+	public String getHakbun() { 
 		return hakbun;
 	}
 
