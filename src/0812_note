@@ -1,0 +1,106 @@
+	
+-성적관리프로젝트-
+
+  문자열 Parsing
+1. String 클래스의 split()
+2. Scanner 클래스의 useDelimeter()
+3. StringTokenizer
+public StringTokenizer​(String str)
+ \t\n\r\f"
+ 
+  객체 정렬하기
+ 1.배열 정렬하기
+ - Arrays.sort() 
+ - Comparable interface를 재정의해야한다
+ 	▲ compareTo() 메소드를 가지고 있는 인터페이스
+ 2. Collection 정하기
+ - Collections.sort()
+ - Comparator interface를 재정의해야한다
+  	▲ compare() 메소드를 가지고 있는 인터페이스
+  	
+ ex)	
+  		public void sort() { //Comparator 재정의 해서 자식 만들거나
+		Collections.sort(this.list,new MyComparator());
+	}
+	
+	class MyComparator implements Comparator<Student>{
+
+		@Override
+		public int compare(Student front, Student back) {
+			return back.getTot()-front.getTot();
+		}
+		
+	}
+	public void sort() { //익명 클래스 이용한 방법
+		Collections.sort(this.list,new Comparator<Student>() {
+
+			@Override
+			public int compare(Student front, Student back) {
+				return front.getName().compareTo(back.getName());
+			}
+		});
+	}
+	
+----------------------------------------------------------------------
+
+ (ArrayListDemo.java)
+ ArraysList
+ ex)
+ List<String> list = Arrays.asList("한지민", "박지민", "홍지민", "김지민", "이지민", "서지민", "신지민");
+		ArrayList<String> array = new ArrayList<String>();
+		for(String str : list) {
+			array.add(str);
+		}
+
+-----------------------------------------------------------------------
+
+ (QueueDemo.java)
+ LinkedList
+ 선입선출
+ Stack과 달리 먼저 들어간 게 먼저 나온다
+ offer
+- 리스트에 값을 집어넣는다
+ Poll
+- 포인트는 고정이고 값을 빼온다
+
+ ex)
+ Queue<String> queue = new LinkedList<String>();
+		String array[] = { "박지민", "홍지민", "한지민", "한지민", "이지민" };
+		for(String str : array) {
+			queue.offer(str); //add
+		}
+ 
+ -------------------------------------------------------------------------
+ 	
+ (EnumerationDemo.java)
+ 데이터를 나열형으로 다루는 방법
+ 1. Enumeration
+ 2. Iterator
+ 
+ ex)
+ Enumeration<String> enums = stack.elements(); //스택으로 받든 말든 관심없다 앞에서 먼저 값 출력
+		while(enums.hasMoreElements()) {
+			System.out.println(enums.nextElement());
+		}
+		
+ ex)
+ 		Iterator<String> iters = queue.iterator();
+		while(iters.hasNext()) {
+			System.out.println(iters.next());
+		}
+		
+------------------------------------------------------------------------------
+ (MapDemo.java)
+ 	map
+ 	put (키, 값)
+ 	get (Object Key)
+ 	1.HashMap
+ 	2.Hashtable
+ 	3.Properties
+ 	
+ -------------------------------------------------------------------------------
+ (PropertiesDemo.java)
+	
+ System.getProperties()
+ //자바 애플리케이션이 시스템에게 얘기한다 OS에 가서 자바에 관련된 시스템 정보 가져오셈
+ 
