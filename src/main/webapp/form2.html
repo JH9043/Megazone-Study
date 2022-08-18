@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang = "kr">
+   <head>
+      <script>
+      function sendRequest(){
+         var txt = document.getElementById("txt").value; //문자열과 일치하는 id 찾아서 그 값을 txt1에 넣는다
+         var txt2 = document.getElementById("txt2").value;
+         
+         //1. XHR 객체 생성
+         var xhr = new XMLHttpRequest();
+         //2. open
+         if (xhr != null){ // 응답을 받지 않은 경우가 아니라면으로 예상
+            xhr.open("GET","formProcess.jsp?txt="+txt+"&txt2="+ txt2,true); //, , 사이를 하나의 url로 본다. 또한 뒤의 +txt 를 더블쿼트안에 넣으면 변수가 된다.
+                                    //txt1=1&txt2=2 서버에 올린다   true : 비동기적 방식 false : 동기적 방식
+            //링크?데이터값
+         
+         }
+         //3. send
+         xhr.send(); //get 요청 때 사용
+         //xhr.send(string); //post 요청 때 사용
+         
+         //4. callback
+         xhr.onreadystatechange = function(){
+            if (xhr.readyState == 4 && xhr.status == 200){
+               document.getElementById("result").innerHTML = xhr.responseText;
+                                                //응답한거 문자열로 받아옴
+            }
+         }
+      }
+      </script>
+   </head>
+   
+   <body>
+      <p>
+         <input id = "txt" type = "text" /> + <input id = "txt2" type = "text" />&nbsp;
+         <button id = "btn" onclick = "sendRequest();">send</button>
+      </p>
+      <p>
+         <span id = "result"></span>
+      </p>
+   </body>
+</html>
