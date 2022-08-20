@@ -2,55 +2,56 @@
 <html>
 
 <head>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
-
-	function sendRequest() {
-		var num = document.getElementById("1").value;
-		var cle = document.getElementById("clear").value;
-		var result = document.getElementById("result").innerHTML
-			result+=num;
-			
-
-		
-			
+	function numinput(num) {
+		result = document.getElementById("result");
+		result.value += num;
 	}
+
+	function cal() {
 		
-	// 	document.write(eval("1+2*3"));
+		result.value = eval(result.value);
+	}
+	function clear_1() {
+		result.value = "";
+	}
+	
+	
+	
 </script>
 </head>
 
 <body>
 	<div style="text-align: center">
 		<p>
-			<span id = "result"></span>
+			<input id="result" />
 		</p>
 
 		<p>
-			<button id="1" onclick="sendRequest();" value="1">1</button>
-			<button id="2" onclick="sendRequest();" value="2">2</button>
-			<button id="3" onclick="sendRequest();" value="3">3</button>
-			<button id="plus" onclick="sendRequest();" value="+">+</button>
+			<button id="1" onclick="numinput(1);">1</button>
+			<button id="2" onclick="numinput(2);">2</button>
+			<button id="3" onclick="numinput(3);">3</button>
+			<button id="plus" onclick="numinput('+');">+</button>
 		</p>
 		<p>
-			<button id="4" onclick="sendRequest();">4</button>
-			<button id="5" onclick="sendRequest();">5</button>
-			<button id="6" onclick="sendRequest();">6</button>
-			<button id="minus" onclick="sendRequest();">-</button>
+			<button id="4" onclick="numinput(4);">4</button>
+			<button id="5" onclick="numinput(5);">5</button>
+			<button id="6" onclick="numinput(6);">6</button>
+			<button id="minus" onclick="numinput('-');">-</button>
 		</p>
 		<p>
-			<button id="7" onclick="sendRequest();">7</button>
-			<button id="8" onclick="sendRequest();">8</button>
-			<button id="9" onclick="sendRequest();">9</button>
-			<button id="exp" onclick="sendRequest();">*</button>
+			<button id="7" onclick="numinput(7);">7</button>
+			<button id="8" onclick="numinput(8);">8</button>
+			<button id="9" onclick="numinput(9);">9</button>
+			<button id="exp" onclick="numinput('*');">*</button>
 		</p>
 		<p>
-			<button id="0" onclick="sendRequest();">0</button>
-			<button id="clear" onclick="sendRequest();">clear</button>
-			<button id="divide" onclick="sendRequest();">/</button>
+			<button id="0" onclick="numinput(0);">0</button>
+			<button id="clear" onclick="clear_1();">Clear</button>
+			<button id="divide" onclick="numinput('/');">/</button>
 		</p>
 		<p>
-			<button id="enter" onclick="sendRequest();">ENTER</button>
+			<button id="enter" onclick="cal();">ENTER</button>
 		</p>
 	</div>
 
