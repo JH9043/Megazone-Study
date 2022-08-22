@@ -12,8 +12,8 @@
 $(function(){
     $.get("/WEBTest/xml/books.xml", null, function(data) {
     	$(data).find("book").each(function(){
-    		var info ="제목 :" + $(this).find("name").text() + "\n";
-//     		info = info.split("<br/>");
+    		var info ="제목:" + $(this).find("name").text() + "\n";
+    		info = info.split(" ");
     		document.write(info);
 //     		var book_name = $('#book1_name').append(info[0]);
     		});
