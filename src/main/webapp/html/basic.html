@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/main.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<!-- jQuery 선언 -->
+<script src="../js/main.js"></script>
+<script>
+
+$(function(){
+    $.get("/WEBTest/xml/books.xml", null, function(data) {
+    	$(data).find("book").each(function(){
+    		var info ="제목 :" + $(this).find("name").text() + "\n";
+//     		info = info.split("<br/>");
+    		document.write(info);
+//     		var book_name = $('#book1_name').append(info[0]);
+    		});
+    });
+    });
+
+</script>
+</head>
+<body>
+	<div>
+		<p id="xmlPara">
+			[책1]<br />
+			제목 : <span id ="book1_name" ></span><br />
+			저자 : <span id = "book1_author"></span><br />
+			[책2]<br />
+			제목 : <span></span><br />
+			저자 : <span></span><br />
+					</p>
+		<p id ="jsonPara"></p>
+	</div>
+	
+<!-- 	<script> -->
+<!-- // 		$("#book1_name").load("/WEBTest/xml/books.xml name") -->
+<!-- 	</script> -->
+
+	<!-- 	<div> -->
+	<!-- 		<p>hello html!</p> -->
+	<!-- 		<p> -->
+	<!-- 			<img src="/WEBTest/images/1.png" /> -->
+	<!-- 			<!-- 절대경로 -->
+	<!-- 			<img src="../images/1.png"> -->
+	<!-- 			<!-- 상대경로 -->
+	<!-- 		</p> -->
+	<!-- 	</div> -->
+</body>
+</html>
