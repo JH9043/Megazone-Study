@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// 1)
+		console.log("1) " + this);
+		// 2)전역 
+		function add(i, j) {
+			console.log("2-1) " + this);
+			return i + j;
+		}
+		add(2, 3);
+
+		// 2)전역
+		var func1 = function(i) {
+			console.log("2-2) " + this);
+			return i;
+		};
+		func1(3);
+
+		// 3)
+		Member = function(name, tel) { //function
+			console.log("3-1) " + this);
+			this.name = name;
+			this.tel = tel;
+			this.getName = function() { //객체 메소드
+				console.log("3-2) " + this);
+				return this.name;
+			}
+			this.getTel = function() {
+				return this.tel;
+			}
+			this.getTotal = function() {
+				var func2 = function() {
+					console.log("4) " + this);
+					console.log("4-ref) " + this.add(3, 5));
+					var func3 = function() {
+						console.log("4-1 )" + this);
+						console.log("4-1-ref) " + this.add(5, 6));
+
+					} //func3
+					func3();
+				} //func2
+				func2();
+				var func4 = function() {
+					console.log("4-2) " + this.add(1, 4));
+				} //func4
+				func4();
+				var func5 = function() {
+					var func6 = function() {
+						//여기서 this는 window
+						// 						var called = func6.call(this, 1);
+						console.log("6) func6 호출됨");
+					}
+					func4();
+					return func6;
+				}
+				func5();
+				
+				var func6Closure = func5();
+				func6Closure();
+				
+
+				// 				func6(); // not defined
+				//func6을 호출하시오!
+			} //getTotal
+		}
+		var member = new Member("홍길동", "010-1234-5678");
+		member.getName();
+		member.getTotal();
+	</script>
+</body>
+</html>
