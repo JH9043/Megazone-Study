@@ -1,27 +1,31 @@
 
 // 체크 상태, 표시될 레이블을 인자로 하는 모델 생성자
 CheckButtonModel = function(checked, label) {
-	this.listeners = new Array();
+	this.listeners = new Array(); //this.listeners를 배열 객체로 생성
 	this.checked = checked;
 	this.label = label;
+	
 }
 
-CheckButtonModel.prototype = {
+CheckButtonModel.prototype = { //prototype property
 	
-	//리스너는 모델의 변환를 감지하는 기능
+	//리스너는 모델의 변화를 감지하는 기능
 	//리스너 추가
 	addListener: function(listener) {
-		this.listeners[this.listeners.length] = listener;
+		this.listeners[this.listeners.length] = listener;	//**/이건 잘 모르겠음
+		
 	}, //addListener
 	
 	//리스너 제거
 	removeListener: function(listener) {
 		if (this.listeners.length == 0) return; //listener가 없다면 리턴하겠다
 
-		var newListeners = new Array();
+		var newListeners = new Array(); //newListeners를 배열 객체 선언
 		for (var i = 0; i < this.listeners.length; i++) { //전체를 놓고 제거할 사람만 빼고 배열을 만들겠다
 			if (this.listeners[i] != listener) {
+				 //전체 대상     	//제거 대상
 				newListeners[newListeners.length] = this.listeners[i];
+				 //새로운 배열                   
 			}
 		}
 		this.listeners = newListeners; //this.listeners(제거된 배열)
@@ -30,6 +34,7 @@ CheckButtonModel.prototype = {
 	// 뷰의 변경을 위해서 모델의 변화를 통보
 	notify: function() {
 		for (var i = 0; i < this.listeners.length; i++) {
+			
 			//this는 모델, 리스너들에게 변화를 통보
 			this.listeners[i].changed(this);
 		}
@@ -69,6 +74,8 @@ CheckButton = function(model, ui) {
 	this.ui.setCheckButton(this);
 	// 뷰 렌더링
 	this.ui.render();
+	
+	
 }
 
 CheckButton.prototype = {
@@ -98,6 +105,7 @@ CheckButton.prototype = {
 
 // View 생성자
 CheckButtonUI = function(elementId) {
+//	console.log(elementId); //receiveMail, receiveSMS
 	this.element = document.getElementById(elementId);
 	this.checkButton = null; // Controller
 }
@@ -114,9 +122,9 @@ CheckButtonUI.prototype = {
 	render: function() {
 		
 		// html 문자열 생성
-		var html = "<img src='";
+		var html = "<img src='"; //체크 여부에 따라 이미지 변경하기 위해 사용
 		if (this.checkButton.isChecked()) {
-			html += "/WEBTest/images/check_on.gif'>";
+			html += "/WEBTest/images/check_on.gif'>"; 
 		} else {
 			html += "/WEBTest/images/check_off.gif'>";
 		}
