@@ -1,0 +1,65 @@
+
+#img1 {
+	width: 200px;
+	animation-iteration-count:1;
+  	animation-fill-mode : forwards;
+  	position: relative;
+}
+#img2 {
+	width: 200px;
+  	animation-iteration-count:1;
+  	animation-fill-mode : forwards;
+  	position: relative;
+}
+
+#img3 {
+	width: 200px;
+  	animation-iteration-count:1;
+  	animation-fill-mode : forwards;
+  	position: relative;
+}
+#img4 {
+	width: 200px;
+  	animation-iteration-count:1;
+  	animation-fill-mode : forwards;
+  	position: relative;
+}
+
+@keyframes move1 {
+  from {
+    left:0%;
+  }
+  to {
+    left:70%;
+  }
+}
+@keyframes move2 {
+  from {
+    left:0%;
+  }
+  to {
+    left:70%;
+  }
+}
+@keyframes move3 {
+  from {
+    left:0%;
+  }
+  to {
+    left:70%;
+  }
+}
+@keyframes move4 {
+  from {
+    left:0%;
+  }
+  to {
+    left:70%;
+  }
+}
+
+
+.timer{
+	float:right;
+	}
+	
