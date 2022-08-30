@@ -8,7 +8,7 @@ function button() {
 
 	for (i = 1; i < 5; i++) {
 
-		var random = (String)(Math.floor(Math.random() * (15 - 5 + 5)) + 5);
+		var random = (String)(Math.floor(Math.random() * (10 - 5 + 5)) + 5);
 		var id2 = "img" + i;
 		var name = "move" + i;
 		var second = random + "s";
@@ -16,6 +16,7 @@ function button() {
 
 		document.getElementById(id2).style.animationName = name;
 		document.getElementById(id2).style.animationDuration = second;
+		
 	}
 
 	setInterval(function() {
@@ -41,8 +42,10 @@ function button() {
 
 		for (i = 1; i < 5; i++) {
 			var id = "time" + i;
-			document.getElementById(id).innerHTML = th + ":" + tm + ":" + ts;
+			var timer = (th + ":" + tm + ":" + ts);
+			document.getElementById(id).innerHTML = timer;
 		}
+
 	})
 }
 

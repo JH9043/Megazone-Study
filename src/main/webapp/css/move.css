@@ -1,27 +1,9 @@
 
-#img1 {
+#img1, #img2, #img3, #img4 {
 	width: 200px;
 	animation-iteration-count:1;
   	animation-fill-mode : forwards;
-  	position: relative;
-}
-#img2 {
-	width: 200px;
-  	animation-iteration-count:1;
-  	animation-fill-mode : forwards;
-  	position: relative;
-}
-
-#img3 {
-	width: 200px;
-  	animation-iteration-count:1;
-  	animation-fill-mode : forwards;
-  	position: relative;
-}
-#img4 {
-	width: 200px;
-  	animation-iteration-count:1;
-  	animation-fill-mode : forwards;
+  	animation-timing-function: linear;
   	position: relative;
 }
 
