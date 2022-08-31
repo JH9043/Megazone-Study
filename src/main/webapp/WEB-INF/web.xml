@@ -19,25 +19,24 @@
 		<param-name>tel</param-name>
 		<param-value>01000000000</param-value>
 	</context-param>
-<!--
-	<error-page>
-		<exception-type>java.lang.ArrayIndexOutOfBoundsException</exception-type>
-		<location>/jsp/error/array.jsp</location>
-	</error-page>
-	<error-page>
-		<exception-type>java.lang.ClassCastException</exception-type>
-		<location>/jsp/error/classCast.jsp</location>
-	</error-page> -->
-	<!--
+	<!-- <error-page> <exception-type>java.lang.ArrayIndexOutOfBoundsException</exception-type> 
+		<location>/jsp/error/array.jsp</location> </error-page> <error-page> <exception-type>java.lang.ClassCastException</exception-type> 
+		<location>/jsp/error/classCast.jsp</location> </error-page> -->
+
 	<error-page>
 		<error-code>404</error-code>
 		<location>/jsp/error/404.jsp</location>
 	</error-page>
-		<error-page>
+	<error-page>
 		<error-code>500</error-code>
 		<location>/jsp/error/500.jsp</location>
 	</error-page>
-  -->
-
+<!-- 	<jsp-config> -->
+<!-- 		<jsp-property-group> -->
+<!-- 			<url-pattern>/jsp/*</url-pattern> -->
+<!-- 			<include-prelude>/jsp/jspf/top.jsp</include-prelude> -->
+<!-- 			<include-coda>/jsp/jspf/bottom.jsp</include-coda> -->
+<!-- 		</jsp-property-group> -->
+<!-- 	</jsp-config> -->
 
 </web-app>
