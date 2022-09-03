@@ -1,14 +1,16 @@
 package com.example;
 
-public class Calc {
-	private Product [] array;
+import java.util.List;
 
-	public Calc(Product[] array) {
-		this.array = array;
+public class Calc {
+	private List<Product> list;
+
+	public Calc(List<Product> list) {
+		this.list = list;
 	}
 	
 	public void calc() {
-		for (Product p : this.array) {
+		for (Product p : this.list) {
 			int selmoney = p.getSu() * p.getSelprice(); //판매금액 = 수량 * 판매단가
 			int buymoney = p.getSu() * p.getBuyprice(); //매입금액 = 수량 * 매입단가
 			int money = selmoney - (buymoney + p.getTransport()); //이익금 = 판매금액 - (매입금액 + 운송료)

@@ -2,15 +2,16 @@ package com.example;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Input {
-	private Product[] array;
+	private List<Product> list;
 	private File file;
 	private Scanner sc;
 
-	public Input(Product[] array) { // 생성자가 하는 일
-		this.array = array;
+	public Input(List<Product> list) { // 생성자가 하는 일
+		this.list = list;
 		this.file = new File("C:\\eclipse_workspace\\productdata.txt");
 		try {
 			this.sc = new Scanner(this.file);
@@ -34,7 +35,7 @@ public class Input {
 			int buyprice = myscan.nextInt(); //매입 단가
 			int transport = myscan.nextInt(); //운송료
 			Product p = new Product(name, su, selprice, buyprice, transport);
-			this.array[count++] = p; //이 배열의 0번째부터 값을 넣는다
+			this.list.add(p); //이 배열의 0번째부터 값을 넣는다
 		}
 	}
 }

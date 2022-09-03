@@ -74,4 +74,6 @@ public class Product {
 		return String.format("%-15s%,7d%,14d%,18d%,14d%,20d%12.2f",
 				name, su, buyprice, selprice, transport, money, rate);
 	}
+
+
 }
