@@ -1,0 +1,180 @@
+	
+-성적관리프로젝트-
+
+  문자열 Parsing
+1. String 클래스의 split()
+2. Scanner 클래스의 useDelimeter()
+3. StringTokenizer
+public StringTokenizer​(String str)
+ \t\n\r\f"
+ 
+  객체 정렬하기
+ 1.배열 정렬하기
+ - Arrays.sort() 
+ - Comparable interface를 재정의해야한다
+ 	▲ compareTo() 메소드를 가지고 있는 인터페이스
+ 2. Collection 정하기
+ - Collections.sort()
+ - Comparator interface를 재정의해야한다
+  	▲ compare() 메소드를 가지고 있는 인터페이스
+  	
+ ex)	
+  		public void sort() { //Comparator 재정의 해서 자식 만들거나
+		Collections.sort(this.list,new MyComparator());
+	}
+	
+	class MyComparator implements Comparator<Student>{
+
+		@Override
+		public int compare(Student front, Student back) {
+			return back.getTot()-front.getTot();
+		}
+		
+	}
+	public void sort() { //익명 클래스 이용한 방법
+		Collections.sort(this.list,new Comparator<Student>() {
+
+			@Override
+			public int compare(Student front, Student back) {
+				return front.getName().compareTo(back.getName());
+			}
+		});
+	}
+	
+----------------------------------------------------------------------
+
+ (ArrayListDemo.java)
+ ArraysList
+ ex)
+ List<String> list = Arrays.asList("한지민", "박지민", "홍지민", "김지민", "이지민", "서지민", "신지민");
+		ArrayList<String> array = new ArrayList<String>();
+		for(String str : list) {
+			array.add(str);
+		}
+
+-----------------------------------------------------------------------
+
+ (QueueDemo.java)
+ LinkedList
+ 선입선출
+ Stack과 달리 먼저 들어간 게 먼저 나온다
+ offer
+- 리스트에 값을 집어넣는다
+ Poll
+- 포인트는 고정이고 값을 빼온다
+
+ ex)
+ Queue<String> queue = new LinkedList<String>();
+		String array[] = { "박지민", "홍지민", "한지민", "한지민", "이지민" };
+		for(String str : array) {
+			queue.offer(str); //add
+		}
+ 
+ -------------------------------------------------------------------------
+ 	
+ (EnumerationDemo.java)
+ 데이터를 나열형으로 다루는 방법
+ 1. Enumeration
+ 2. Iterator
+ 
+ ex)
+ Enumeration<String> enums = stack.elements(); //스택으로 받든 말든 관심없다 앞에서 먼저 값 출력
+		while(enums.hasMoreElements()) {
+			System.out.println(enums.nextElement());
+		}
+		
+ ex)
+ 		Iterator<String> iters = queue.iterator();
+		while(iters.hasNext()) {
+			System.out.println(iters.next());
+		}
+		
+------------------------------------------------------------------------------
+ (MapDemo.java)
+ 	map
+ 	put (키, 값)
+ 	get (Object Key)
+ 	1.HashMap
+ 	2.Hashtable
+ 	3.Properties
+ 	
+ -------------------------------------------------------------------------------
+ (PropertiesDemo.java)
+	
+ System.getProperties()
+ //자바 애플리케이션이 시스템에게 얘기한다 OS에 가서 자바에 관련된 시스템 정보 가져오셈
+ 
+ -----------------------------------------------------------------------------
+ (RandomAccessFileDemo.java)
+
+ - 스트림 방식
+ 읽기 따로 쓰기 따로
+ 
+ - RandomAccessFile
+ 읽기, 쓰기 동시적으로 가능
+ 
+ -------------------------------------------------------------------------------
+ 
+ - File 클래스
+  파일의 정보를 다루기 위한 클래스
+  
+  ex) 진짜 경로는 뭔가?
+ 		System.out.println("getPath() = " + file.getPath());
+		System.out.println("getAbsolutePath() = " + file.getAbsolutePath());
+		System.out.println("getCanonicalPath() = " + file.getCanonicalPath());
+		
+		-result
+		Input a file path : . (현재 나의 위치)
+		getPath() = .
+		getAbsolutePath() = C:\Users\User\git\0812\.
+		getCanonicalPath() = C:\Users\User\git\0812
+		
+		-result
+		Input a file path : ../../project/work
+		getPath() = ..\..\project\work
+		getAbsolutePath() = C:\Users\User\git\0812\..\..\project\work
+		getCanonicalPath() = C:\Users\User\project\work
+	
+	진짜 경로는 CanonicalPath이다
+
+-------------------------------------------------------------------------------------
+java.net 패키지에서 보면 좋을 거 (https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/package-summary.html)
+
+INetAddress
+URL
+URL Connection
+URL Encoder - 한글을 URL에 맞게 변환
+URL Decoder
+Socket
+Server Socket
+Datagramsocket
+Datagrampacket
+
+- OSI 7 Layer
+Application Layer --
+Presentation Layer
+Session Layer
+Transport Layer --
+Network Layer --
+Data Link Layer
+Physical Layer
+
+----------------------------------------------------------------------------------------
+
+ (LambdaDemo.java, YourInterface.java, LambdaDemo1.java, LambdaDemo2.java)
+ 자식 -> 재정의 -> 람다 표현식
+ 
+ 람다 표현식
+- Scala나 Groovy에서 사용하기 위해 만든 익명 메소드
+- Java는 1.8버전에서 함수형 언어를 구현하기 위해 도입함
+- 추측이 가능한 타입,파라미터는 생략
+- 리턴도 생략
+- 람다가 접근하는 메소드가 1개만 있어야 한다
+@FunctionalInterface - 메소드가 하나임을 보장하며 람다에서 쓸 수 있다
+ex)
+	MyInterface mi = (a, b) -> a + b;
+	int result = mi.calculate(5, 9);
+	System.out.println("Result = " + result);	
+	
+	
+	
