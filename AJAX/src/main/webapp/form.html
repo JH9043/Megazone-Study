@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+<script>
+	function sendRequest() {
+		
+		var txt = document.getElementById("txt").value;
+		// 1. XHR 객체 생성
+		var xhr = new XMLHttpRequest();
+		// 2. open
+		if (xhr != null) {
+			xhr.open("GET", "formProcess.jsp?txt=" + txt, true);
+		}
+		// 3. send
+		xhr.send();
+
+		// 4. callback
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				document.getElementById("result").innerHTML = xhr.responseText;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<p>
+		<input id="txt" type="text" />&nbsp;
+		<button id="btn" onclick="sendRequest();">send</button>
+	</p>
+	<p>
+		result : <span id="result"></span>
+	</p>
+</body>
+</html>
